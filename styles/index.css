@@ -1,0 +1,119 @@
+body {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    /* letter-spacing: 2px; */
+}
+
+h3 {
+    color: rgb(37, 37, 37);
+    margin-top: 16px;
+    margin-left: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+h5  {
+    color: rgb(37, 37, 37);
+    margin-left: 16px;
+    font-family: Arial, Helvetica, sans-serif;
+}
+
+a {
+    text-decoration: none;
+    color: antiquewhite;
+}
+
+.login {
+    font-family: Arial, Helvetica, sans-serif;
+    display: inline;
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-top: 16px;
+    margin-right: 16px;
+    background-color: rgb(37, 37, 37);
+    padding: 8px 16px;
+    border-radius: 8px;
+    text-transform: uppercase;
+}
+
+.kolo {
+    margin: 0 32px;
+}
+
+.table-div {
+    margin: 0 32px;
+}
+
+p {
+    margin: 0;
+}
+
+.comments-div {
+    margin: 20px 32px;
+    border-radius: 4px;
+    border-color: antiquewhite;
+    background-color: antiquewhite;
+    padding: 10px;
+}
+
+.comments-title {
+    font-style: italic;
+    margin-bottom: 4px;
+    display: inline;
+}
+
+.single-comment-div {
+    font-size: none;
+    background-color: white;
+    border-radius: 4px;
+    padding: 8px;
+    margin: 8px 0;
+}
+
+.comment-author {
+    font-weight: 500;
+    display: inline;
+}
+
+.comment-date {
+    font-style: italic;
+    display: inline;
+    font-size: 12px;
+}
+
+.comment-add-div {
+    position: relative;
+    display: inline;
+    top: 0;
+    right: 0;
+}
+
+.comment-add-button {
+    border: 1px rgb(37, 37, 37) solid;
+    border-radius: 4px;
+}
+
+.comment-del-button, .comment-update-button {
+    border: 1px rgb(37, 37, 37) solid;
+    border-radius: 4px;
+    font-size: 12px;
+}
+
+dialog {
+    border: 1px solid rgb(37, 37, 37);
+    border-radius: 4px;
+    background-color: antiquewhite;
+}
+
+dialog > input {
+    padding: 6px;
+    display: block;
+}
+
+dialog > button {
+    margin: 0;
+    border: 1px solid rgb(37, 37, 37);
+    border-radius: 4px;
+    text-transform: capitalize;
+}

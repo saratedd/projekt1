@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <link rel="stylesheet" href="../styles/index.css">
+    <title>Projekt 1</title>
+</head>
+<body>
+    <h3>
+        Hello, <%= locals.user || 'Anonymous'%>!
+    </h3>
+    <h5>
+        Your role is <%= role %>.
+    </h5>
+    <div class="login">
+        <% if (!isAuthenticated) {%>
+        <a href="/login">Login</a>
+        <%} else {%>
+        <a href="/logout">Logout</a>
+        <% } %> 
+    </div>
+    <section>
+        <% var i = 0 %>
+        <% for (kolo of data) {%>
+            <br>
+            <h5 class="kolo">
+                Group <%= ++i%> 
+            </h5>
+            <div class="table-div">
+                <table class="table">
+                    <thead>
+                    <tr>
+                        <% for (attr of attrs) {%>
+                        <th scope="col"><%= attr %></th>
+                        <% }  %> 
+                    </tr>
+                    </thead>
+                    <tbody>
+                        <% for (game of kolo.games) {%> 
+                            <tr>
+                                <td><%= game.date %></td>
+                                <td><%= game.home %> </td>
+                                <td><%= game.away %> </td>
+                                <td><%= game.home_goals %> </td>
+                                <td><%= game.away_goals %> </td>
+                            </tr>
+                        <% } %> 
+                    </tbody>                 
+                </table>
+            </div>
+            <div class="comments-div">
+                <div class="comments">
+                    <% if (false) {%>
+                        <p class="comments-title">No comments</p>
+                        <button class="comment-add-button">Add comment</button>
+                    <% } else {%>
+                        <p class="comments-title">Comments:</p>
+                        <% if (user != 'Anonymous') {%> 
+                            <div class="comment-add-div">
+                                <button class="comment-add-button" id="comment-add-button">Add comment</button>
+                            </div>
+                        <% } %> 
+                        <% for (comment of comments) { %> 
+                        <div class="single-comment-div">
+                            <p class="comment-author"><%= comment.author %> </p>
+                            <p class="comment-date">(<%= comment.date %>) </p>
+                            <% if (comment.author == user) {%>
+                                <form action="/delete" method="post" style="display: inline;">
+                                    <!-- <input type="button" name="delete" value="delete"> -->
+                                    <button class="comment-del-button" name="delete" value="<%= comment.id%>">Delete</button>
+                                </form>
+                                <button class="comment-update-button">Update</button>
+                                <form action="/update" method="post" style="display: inline;">
+                                    <dialog class="dialog-update">
+                                        <input type="text" value="<%= comment.text %>" name="comment">
+                                        <button class="comment-button" name="update" value="<%= comment.id %>">Update</button>
+                                    </dialog>
+                                </form>
+                            <% } %> 
+                            <p class="comment-text"><%= comment.text %> </p>
+                        </div>
+                        <% } %> 
+                    <% } %>
+                    <form action="/add" method="post">
+                        <dialog class="dialog-add">
+                            <input type="text" placeholder="Write your comment..." name="comment">
+                            <button type="submit" class="submit-comment">Submit</button>
+                            <!-- <button type="cancel" class="close-comment">Close</button> -->
+                        </dialog>
+                    </form>
+
+                </div>
+            </div>
+        <% } %> 
+    </section>
+
+</body>
+<script type="module" src="../index.js"></script>
+</html>
