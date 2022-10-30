@@ -176,4 +176,4 @@ app.get("/:smth", (req, res) => {
     res.status(404).send(`This page (localhost:3000/${req.params.smth}) does not exist. Go somewhere else.`)
 })
 
-app.listen(3000)
+app.listen(process.env.PORT || 3000)
